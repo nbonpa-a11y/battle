@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>対戦ゲーム レート変動計算ツール</title>
+    <meta
+      name="description"
+      content="連勝数、自分のポイント、相手のポイントから勝敗時の獲得ポイントを即時計算する静的サイトです。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="page-title">
+      <section class="hero">
+        <p class="eyebrow">Battle Rating Calculator</p>
+        <h1 id="page-title">対戦ゲーム レート変動計算ツール</h1>
+        <p class="lead">
+          「連勝数」「自分のポイント」「相手のポイント」を入力すると、勝った場合と負けた場合のポイント変動を即座に表示します。
+        </p>
+      </section>
+
+      <section class="calculator" aria-label="ポイント計算フォーム">
+        <form id="rating-form" class="form" novalidate>
+          <label class="field" for="win-streak">
+            <span>連勝数</span>
+            <input id="win-streak" name="winStreak" type="number" min="1" step="1" value="1" inputmode="numeric" />
+          </label>
+
+          <label class="field" for="my-points">
+            <span>自分のポイント</span>
+            <input id="my-points" name="myPoints" type="number" step="1" value="1500" inputmode="numeric" />
+          </label>
+
+          <label class="field" for="opponent-points">
+            <span>相手のポイント</span>
+            <input id="opponent-points" name="opponentPoints" type="number" step="1" value="1500" inputmode="numeric" />
+          </label>
+        </form>
+
+        <div id="error-message" class="error" role="alert" hidden></div>
+
+        <div class="results" aria-live="polite">
+          <article class="result-card win">
+            <span class="result-label">勝ち</span>
+            <output id="win-result" class="result-value" for="win-streak my-points opponent-points">0</output>
+            <span class="result-caption">獲得ポイント</span>
+          </article>
+
+          <article class="result-card lose">
+            <span class="result-label">負け</span>
+            <output id="lose-result" class="result-value" for="win-streak my-points opponent-points">0</output>
+            <span class="result-caption">獲得ポイント</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="formula" aria-labelledby="formula-title">
+        <h2 id="formula-title">計算式</h2>
+        <pre><code>連勝ボーナス倍率 = min(1.2, 1 + (連勝数 - 1) * 0.05)
+ポイント差 = 自分のポイント - 相手のポイント
+
+勝ち: 基礎ポイント = max(1, (4000 - ポイント差) / 25)
+      獲得ポイント = int(基礎ポイント * 連勝ボーナス倍率)
+
+負け: 基礎ポイント = -(4000 + ポイント差) / 25
+      獲得ポイント = int(基礎ポイント)</code></pre>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
