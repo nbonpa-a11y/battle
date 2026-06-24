@@ -6,8 +6,8 @@
   --muted: #667085;
   --primary: #3157d5;
   --primary-dark: #1f3fa3;
-  --win: #0f9f6e;
-  --lose: #d64545;
+  --win: #d64545;
+  --lose: #3157d5;
   --border: #d9e1ef;
   --shadow: 0 24px 70px rgba(24, 32, 51, 0.12);
 }
@@ -84,7 +84,8 @@ h1 {
   font-weight: 700;
 }
 
-.field input {
+.field input,
+.field select {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -96,7 +97,8 @@ h1 {
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.field input:focus {
+.field input:focus,
+.field select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(49, 87, 213, 0.14);
   outline: none;
@@ -139,15 +141,16 @@ h1 {
 }
 
 .result-card.win {
-  background: linear-gradient(135deg, var(--win), #19bd88);
+  background: linear-gradient(135deg, var(--win), #f06b6b);
 }
 
 .result-card.lose {
-  background: linear-gradient(135deg, var(--lose), #f06b6b);
+  background: linear-gradient(135deg, var(--lose), #3f7cff);
 }
 
 .result-label,
-.result-caption {
+.result-caption,
+.result-after-label {
   font-weight: 700;
   opacity: 0.86;
 }
@@ -156,6 +159,24 @@ h1 {
   font-size: clamp(2.8rem, 10vw, 5rem);
   font-weight: 800;
   line-height: 1;
+}
+
+.field-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.result-after-label {
+  margin-top: 0.65rem;
+  font-size: 0.95rem;
+}
+
+.result-after-value {
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .formula {
