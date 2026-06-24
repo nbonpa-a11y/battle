@@ -62,7 +62,7 @@ function updateResults() {
 
   if (hasInvalidValue || winStreak < 1 || hasInvalidPoints) {
     errorMessage.hidden = false;
-    errorMessage.textContent = "自分と相手のポイントは0以上・5桁までの整数で入力してください。";
+    errorMessage.textContent = "自分と相手のポイントは0以上の整数で入力してください。";
     setInvalidResults();
     return;
   }
