@@ -21,7 +21,8 @@ function calculatePoints(winStreak, myPoints, opponentPoints) {
 
   const loseBasePoints = -(4000 + pointDifference) / 25;
   const calculatedLosePoints = truncateLikePythonInt(loseBasePoints);
-  const losePoints = Math.max(calculatedLosePoints, -myPoints);
+  const losePoints =
+    myPoints === 0 ? 0 : Math.min(-1, Math.max(calculatedLosePoints, -myPoints));
   
   return { winPoints, losePoints };
 }
