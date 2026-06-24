@@ -71,10 +71,10 @@ function updateResults() {
   errorMessage.textContent = "";
 
   const { winPoints, losePoints } = calculatePoints(winStreak, myPoints, opponentPoints);
-  winResult.value = `${winPoints}pt`;
-  loseResult.value = `${losePoints}pt`;
-  winAfterResult.value = `${myPoints + winPoints}pt`;
-  loseAfterResult.value = `${myPoints + losePoints}pt`;
+  winResult.value = `${winPoints} pt`;
+  loseResult.value = `${losePoints} pt`;
+  winAfterResult.value = `${myPoints + winPoints} pt`;
+  loseAfterResult.value = `${myPoints + losePoints} pt`;
 }
 
 form.addEventListener("input", updateResults);
