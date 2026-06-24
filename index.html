@@ -49,19 +49,21 @@
 
         <div class="results" aria-live="polite">
           <article class="result-card win">
-            <span class="result-label">勝ち</span>
-            <output id="win-result" class="result-value" for="win-streak my-points opponent-points">0</output>
+            <span class="result-label">勝利時：</span>
             <span class="result-caption">獲得ポイント</span>
-            <span class="result-after-label">獲得後の自分のポイント</span>
-            <output id="win-after-result" class="result-after-value" for="win-streak my-points opponent-points">0</output>
+            <output id="win-result" class="result-value" for="win-streak my-points opponent-points">0pt</output>
+            <span class="result-spacer" aria-hidden="true"></span>
+            <span class="result-after-label">獲得後の自分のポイント：</span>
+            <output id="win-after-result" class="result-after-value" for="win-streak my-points opponent-points">0pt</output>
           </article>
 
           <article class="result-card lose">
-            <span class="result-label">負け</span>
-            <output id="lose-result" class="result-value" for="win-streak my-points opponent-points">0</output>
+            <span class="result-label">敗北時：</span>
             <span class="result-caption">獲得ポイント</span>
-            <span class="result-after-label">獲得後の自分のポイント</span>
-            <output id="lose-after-result" class="result-after-value" for="win-streak my-points opponent-points">0</output>
+            <output id="lose-result" class="result-value" for="win-streak my-points opponent-points">0pt</output>
+            <span class="result-spacer" aria-hidden="true"></span>
+            <span class="result-after-label">獲得後の自分のポイント：</span>
+            <output id="lose-after-result" class="result-after-value" for="win-streak my-points opponent-points">0pt</output>
           </article>
         </div>
       </section>
