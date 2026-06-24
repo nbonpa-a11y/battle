@@ -24,17 +24,24 @@
         <form id="rating-form" class="form" novalidate>
           <label class="field" for="win-streak">
             <span>連勝数</span>
-            <input id="win-streak" name="winStreak" type="number" min="1" step="1" value="1" inputmode="numeric" />
+            <select id="win-streak" name="winStreak">
+              <option value="1">1勝 (連勝無し)</option>
+              <option value="2">2連勝</option>
+              <option value="3">3連勝</option>
+              <option value="4">4連勝</option>
+              <option value="5">5連勝以上</option>
+            </select>
+            <span class="field-note">※連勝数はその試合に勝てた場合の連勝数を選択してください</span>
           </label>
 
           <label class="field" for="my-points">
             <span>自分のポイント</span>
-            <input id="my-points" name="myPoints" type="number" step="1" value="18000" inputmode="numeric" />
+            <input id="my-points" name="myPoints" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" value="18000" />
           </label>
 
           <label class="field" for="opponent-points">
             <span>相手のポイント</span>
-            <input id="opponent-points" name="opponentPoints" type="number" step="1" value="18000" inputmode="numeric" />
+            <input id="opponent-points" name="opponentPoints" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" value="18000" />
           </label>
         </form>
 
@@ -45,12 +52,16 @@
             <span class="result-label">勝ち</span>
             <output id="win-result" class="result-value" for="win-streak my-points opponent-points">0</output>
             <span class="result-caption">獲得ポイント</span>
+            <span class="result-after-label">獲得後の自分のポイント</span>
+            <output id="win-after-result" class="result-after-value" for="win-streak my-points opponent-points">0</output>
           </article>
 
           <article class="result-card lose">
             <span class="result-label">負け</span>
             <output id="lose-result" class="result-value" for="win-streak my-points opponent-points">0</output>
             <span class="result-caption">獲得ポイント</span>
+            <span class="result-after-label">獲得後の自分のポイント</span>
+            <output id="lose-after-result" class="result-after-value" for="win-streak my-points opponent-points">0</output>
           </article>
         </div>
       </section>
